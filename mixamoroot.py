@@ -296,9 +296,9 @@ def import_armature(filepath, root_bone_name="Root", hip_bone_name="mixamorig:Hi
     old_objs = set(bpy.context.scene.objects)
     if insert_root:
         bpy.ops.object.transform_apply(location=True, rotation=True, scale=True)
-        bpy.ops.import_scene.fbx(filepath = filepath)#,  automatic_bone_orientation=True)
+        bpy.ops.import_scene.fbx(anim_offset = 0.0, filepath = filepath)#,  automatic_bone_orientation=True)
     else:
-        bpy.ops.import_scene.fbx(filepath = filepath)#,  automatic_bone_orientation=True)
+        bpy.ops.import_scene.fbx(anim_offset = 0.0, filepath = filepath)#,  automatic_bone_orientation=True)
     
     imported_objects = set(bpy.context.scene.objects) - old_objs
     imported_actions = [x.animation_data.action for x in imported_objects if x.animation_data]
